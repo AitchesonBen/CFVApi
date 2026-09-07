@@ -27,6 +27,9 @@ model Set {
   id        Int      @id @default(autoincrement())
   setNumber String
   name      String
+  collabSet   Boolean
+  format    String
+  releaseDate   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   cards Cards[]
@@ -42,12 +45,22 @@ model Cards {
   clan      String
   type      String
   ability   String
-  persona Boolean
+  persona   Boolean
   power     Int
+  shield    Int
   critical  Int
   effect    String
   setId     Int
   set       Set      @relation(fields: [setId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  rarity Rarity[]
+}
+
+model Rarity {
+  id    Int   @id @default(autoincrement())
+  cardNumber    String
+  rarityCode    String
+  cardsId   Int
+  cards   Cards   @relation(fields: [cardsId], references: [id])
 }

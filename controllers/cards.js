@@ -38,10 +38,10 @@ const getCards = async (req, res) => {
 
 const createCard = async (req, res) => {
     try {
-        const { cardNumber, name, grade, nation, race, clan, type, ability, persona, power, critical, effect } = req.body;
+        const { cardNumber, name, grade, nation, race, clan, type, ability, persona, power, shield, critical, effect } = req.body;
 
         await prisma.card.create({
-            data : {cardNumber, name, grade, nation, race, clan, type, ability, persona, power, critical, effect}
+            data : {cardNumber, name, grade, nation, race, clan, type, ability, persona, power, shield, critical, effect}
         });
 
         const newCard = await prisma.card.findMany();
@@ -60,7 +60,7 @@ const createCard = async (req, res) => {
 const updateCard = async (req, res) => {
     try {
         const { id } = req.params;
-        const { cardNumber, name, grade, nation, race, clan, type, ability, persona, power, critical, effect } = req.body;
+        const { cardNumber, name, grade, nation, race, clan, type, ability, persona, power, shield, critical, effect } = req.body;
 
         let card = await prisma.card.findUnique({
             where: { id: Number(id)}
@@ -72,7 +72,7 @@ const updateCard = async (req, res) => {
 
         card = await prisma.card.update({
             where: {id: Number(id)},
-            data: {cardNumber, name, grade, nation, race, clan, type, ability, persona, power, critical, effect}
+            data: {cardNumber, name, grade, nation, race, clan, type, ability, persona, power, shield, critical, effect}
         })
 
         return res.json({
