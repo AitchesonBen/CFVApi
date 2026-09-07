@@ -1,0 +1,29 @@
+-- CreateTable
+CREATE TABLE "Set" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "setNumber" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Cards" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "cardNumber" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
+    "grade" INTEGER NOT NULL,
+    "nation" TEXT NOT NULL,
+    "race" TEXT NOT NULL,
+    "clan" TEXT NOT NULL,
+    "type" TEXT NOT NULL,
+    "Ability" TEXT NOT NULL,
+    "Persona" BOOLEAN NOT NULL,
+    "Power" INTEGER NOT NULL,
+    "Critical" INTEGER NOT NULL,
+    "Effect" TEXT NOT NULL,
+    "setId" INTEGER NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL,
+    CONSTRAINT "Cards_setId_fkey" FOREIGN KEY ("setId") REFERENCES "Set" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);

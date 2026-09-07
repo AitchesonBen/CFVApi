@@ -1,0 +1,22 @@
+Vanguard Card info
+
+CardNum:
+Name:
+Grade:
+Nation:
+Race:
+Clan:
+Type: (Order, Unit etc.) OR (Normal Order, Normal Unit, Blitz Order etc.)
+Ability: (Twin Drive, Boost, Intercept)
+Persona: (Bool prob)
+Power:
+Critical:
+Effect: *Array for multiple effects? All in One field?*
+
+Or
+
+Set: [ SetNum:, Name: etc.]
+
+Set:
+	Num: (eg. DZBT-12)
+	Name: (eg. Chasm of the lost souls)
